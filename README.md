@@ -14,6 +14,8 @@ and use next command to build both static and dynamic ffmpeg libraries:
 
 ./configure --toolchain=msvc --arch=x86_64 --enable-yasm  --enable-asm --enable-shared --disable-programs --enable-avresample --enable-libx264 --enable-gpl --prefix=./install
 
+Be carefull, sometimes ./configure stalls in the middle and you need to kill perl.exe process to make it continue.
+
 
 2. Manually set up path to ffmpeg install dir in base CMakeLists.txt:
 
