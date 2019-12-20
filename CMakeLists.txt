@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 2.6)
 
 set (FFMPEG_INSTALL_DIR "D:/ffmpeg/FFmpeg/install")
+set (X264_DIR "D:/ffmpeg/x264")
 
 find_path(AVCODEC_INCLUDE_DIR libavcodec/avcodec.h ${FFMPEG_INSTALL_DIR}/include)
 find_library(AVCODEC_LIBRARY avcodec ${FFMPEG_INSTALL_DIR}/bin)
@@ -36,6 +37,8 @@ file (COPY ${FFMPEG_INSTALL_DIR}/lib/libswresample.a DESTINATION ${PROJECT_BINAR
 file (RENAME ${PROJECT_BINARY_DIR}/ffmpeg-build/libswresample.a ${PROJECT_BINARY_DIR}/ffmpeg-build/swresample.lib)
 find_library(AVRESAMPLE_LIBRARY_STATIC swresample ${PROJECT_BINARY_DIR}/ffmpeg-build)
 
+find_library(X264_LIBRARY_STATIC libx264 ${X264_DIR})
+
 set (FFMPEG_INCLUDES 
   ${AVCODEC_INCLUDE_DIR}
   ${AVFORMAT_INCLUDE_DIR}
@@ -59,6 +62,7 @@ set (FFMPEG_LIBRARIES_STATIC
   ${AVDEVICE_LIBRARY_STATIC}
   ${SWSCALE_LIBRARY_STATIC} 
   ${AVRESAMPLE_LIBRARY_STATIC}
+  ${X264_LIBRARY_STATIC}
 )
 add_subdirectory( ffplayer )
 add_subdirectory( opencv_ffmpeg )
