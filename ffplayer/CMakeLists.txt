@@ -4,21 +4,16 @@ project(ffplayer)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_FLAGS "-D__STDC_CONSTANT_MACROS")
 
-find_path(AVCODEC_INCLUDE_DIR libavcodec/avcodec.h D:/ffmpeg/FFmpeg/install/include)
-find_library(AVCODEC_LIBRARY avcodec D:/ffmpeg/FFmpeg/install/bin)
-
-find_path(AVFORMAT_INCLUDE_DIR libavformat/avformat.h D:/ffmpeg/FFmpeg/install/include)
-find_library(AVFORMAT_LIBRARY avformat D:/ffmpeg/FFmpeg/install/bin)
-
-find_path(AVUTIL_INCLUDE_DIR libavutil/avutil.h D:/ffmpeg/FFmpeg/install/include)
-find_library(AVUTIL_LIBRARY avutil D:/ffmpeg/FFmpeg/install/bin)
-
-find_path(AVDEVICE_INCLUDE_DIR libavdevice/avdevice.h D:/ffmpeg/FFmpeg/install/include)
-find_library(AVDEVICE_LIBRARY avdevice D:/ffmpeg/FFmpeg/install/bin)
-
-find_path(SWSCALE_INCLUDE_DIR libswscale/swscale.h D:/ffmpeg/FFmpeg/install/include)
-find_library(SWSCALE_LIBRARY swscale D:/ffmpeg/FFmpeg/install/bin)
+set (FFMPEG_DLLS
+  ${FFMPEG_INSTALL_DIR}/bin/avcodec-58.dll
+  ${FFMPEG_INSTALL_DIR}/bin/avformat-58.dll
+  ${FFMPEG_INSTALL_DIR}/bin/avutil-56.dll
+  ${FFMPEG_INSTALL_DIR}/bin/swresample-3.dll
+  ${FFMPEG_INSTALL_DIR}/bin/swscale-5.dll
+)
+file (COPY ${FFMPEG_DLLS} DESTINATION ${PROJECT_BINARY_DIR}/Debug)
+file (COPY ${FFMPEG_DLLS} DESTINATION ${PROJECT_BINARY_DIR}/Release)
 
 add_executable(ffplayer main.cpp)
-target_include_directories(ffplayer PRIVATE ${AVCODEC_INCLUDE_DIR} ${AVFORMAT_INCLUDE_DIR} ${AVUTIL_INCLUDE_DIR} ${AVDEVICE_INCLUDE_DIR} ${SWSCALE_INCLUDE_DIR})
-target_link_libraries(ffplayer PRIVATE ${AVCODEC_LIBRARY} ${AVFORMAT_LIBRARY} ${AVUTIL_LIBRARY} ${AVDEVICE_LIBRARY} ${SWSCALE_LIBRARY})
+target_include_directories(ffplayer PRIVATE ${FFMPEG_INCLUDES})
+target_link_libraries(ffplayer PRIVATE ${FFMPEG_LIBRARIES})
