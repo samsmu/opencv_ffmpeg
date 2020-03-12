@@ -12,12 +12,11 @@ In order to build this project, you need:
 1. Build ffmpeg and install it. Follow instructions from here: https://gist.github.com/RangelReale/3e6392289d8ba1a52b6e70cdd7e10282
 and use next tow commands to build both static and dynamic ffmpeg libraries:
 
-./configure --toolchain=msvc --arch=x86_64 --enable-yasm  --enable-asm --enable-shared --disable-programs --enable-avresample --enable-libx264 --enable-gpl --prefix=./install
+  - ./configure --toolchain=msvc --arch=x86_64 --enable-yasm  --enable-asm --enable-shared --disable-programs --enable-avresample --enable-libx264 --enable-gpl --prefix=./install && make && make install
+  - ./configure --toolchain=msvc --arch=x86_64 --enable-yasm  --enable-asm --disable-programs --enable-avresample --enable-libx264 --enable-gpl --prefix=./install && make && make install
 
-./configure --toolchain=msvc --arch=x86_64 --enable-yasm  --enable-asm --disable-programs --enable-avresample --enable-libx264 --enable-gpl --prefix=./install
+During this step, perl.exe may be stall. In this case, kill it manually after some time passes.
 
 2. Manually set up paths to ffmpeg and x264 install dir in base CMakeLists.txt:
-set (FFMPEG_INSTALL_DIR "%YOUR_PATH_TO_FFMPEG%/FFmpeg/install")
-
-set (FFMPEG_INSTALL_DIR "%YOUR_PATH_TO_FFMPEG%/FFmpeg/install")
-set (X264_DIR "%YOUR_PATH_TO_X264%")
+  - set (FFMPEG_INSTALL_DIR "%YOUR_PATH_TO_FFMPEG%/FFmpeg/install")
+  - set (X264_DIR "%YOUR_PATH_TO_X264%")
