@@ -3,7 +3,8 @@ Contains two applications:
 
 ffplayer - Small example that dynamically links with ffmpeg and saves frames after 10th into .ppm files. Allows to check if ffmpeg is working and also allows to debug it with VS.
 
-ffmpeg_opencv - OpenCV interface to ffmpeg, statically linked with ffmpeg libraries. Rename it to opencv_ffmpeg_64.dll and replace appropriate DLL in OpenCV in order to make it work.
+ffmpeg_opencv - OpenCV interface to ffmpeg, statically linked with ffmpeg libraries. Rename it to opencv_ffmpeg410_64.dll and replace appropriate DLL in OpenCV in order to make it work. For Autoplan place it in WebDAV:\autoplan_downloads\autoplan_ar\depends_bins\vc14_x64\opencv.
+
 OpenCV loads it in runtime, so no need to re-compile anything.
 
 
