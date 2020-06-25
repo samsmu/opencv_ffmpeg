@@ -1,8 +1,5 @@
 cmake_minimum_required(VERSION 2.6)
 
-set (FFMPEG_INSTALL_DIR "D:/ffmpeg/FFmpeg/install")
-set (X264_DIR "D:/ffmpeg/x264")
-
 find_path(AVCODEC_INCLUDE_DIR libavcodec/avcodec.h ${FFMPEG_INSTALL_DIR}/include)
 find_library(AVCODEC_LIBRARY avcodec ${FFMPEG_INSTALL_DIR}/bin)
 file (COPY ${FFMPEG_INSTALL_DIR}/lib/libavcodec.a DESTINATION ${PROJECT_BINARY_DIR}/ffmpeg-build)
