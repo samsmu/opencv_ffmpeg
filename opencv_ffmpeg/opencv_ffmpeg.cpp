@@ -6,4 +6,8 @@
 #pragma comment(lib, "Mfuuid.lib")
 #pragma comment(lib, "Strmiids.lib")
 
-#include "cap_ffmpeg_impl.hpp"
+#pragma comment(lib, "opencv_core430.lib")
+
+#include <Windows.h>
+
+#include <cap_ffmpeg.cpp>
