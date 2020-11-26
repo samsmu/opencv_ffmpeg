@@ -6,7 +6,7 @@
 #pragma comment(lib, "Mfuuid.lib")
 #pragma comment(lib, "Strmiids.lib")
 
-#pragma comment(lib, "opencv_core430.lib")
+#pragma comment(lib, "opencv_core450.lib")
 
 #include <Windows.h>
 
