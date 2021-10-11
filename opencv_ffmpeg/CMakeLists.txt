@@ -121,7 +121,7 @@ set(ep_common_args
 
 ExternalProject_Add(OpenCV
     GIT_REPOSITORY "git@github.com:opencv/opencv.git"
-    GIT_TAG "4.5.0"
+    GIT_TAG "4.5.3"
     PREFIX opencv-cmake
     SOURCE_DIR ${ep_prefix}/OpenCV-src
     BINARY_DIR ${ep_prefix}/OpenCV-build
